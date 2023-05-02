@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html><head>
+    <title>user_page</title>
+</head>
+<body>
+<h1>Namaste {{ First_name | lower }}</h1><br/>
+<p> Stuff in html {{stuff | trim | safe}}</p>
+
+<p>
+    <strong>Students Name:</strong><br/>
+{% for students in name_list %}
+    {{students}}
+{% endfor %}
+
+<br/>
+{{ name_list.0}}
+</p>
+</body>
+</html>
+
