@@ -1,20 +1,42 @@
-<!DOCTYPE html>
-<html><head>
-    <title>user_page</title>
-</head>
-<body>
-<h1>Namaste {{ First_name | lower }}</h1><br/>
-<p> Stuff in html {{stuff | trim | safe}}</p>
+{% extends 'base.html' %}
 
-<p>
-    <strong>Students Name:</strong><br/>
-{% for students in name_list %}
-    {{students}}
-{% endfor %}
+{% block content %}
 
-<br/>
-{{ name_list.0}}
-</p>
-</body>
-</html>
+    <html><head>
+        <title>user_page</title>
+    </head>
+    <body>
+    <h1>Namaste {{ First_name | title }}</h1><br/>
+    <p> Stuff in html {{stuff | trim | safe}}</p>
 
+    <p>
+        <strong>Students Name:</strong><br/>
+    {% for students in name_list %}
+        {{students}} <br/>
+    {% endfor %}
+
+    <br/>
+    {{ name_list.0}}
+
+    <h2>Pizza Menu:</h2>
+
+    {% for pizza in Pizza_Menu %}
+        {% if pizza == 67 %}
+            {{ pizza + 2 }} <br/>
+        {% else %}
+            {{ pizza }}<br/>
+        {% endif %}
+
+    {% endfor %}
+
+    <br/><br/>
+
+    {% for item in (Pizza_Menu | reverse) %}
+        {{ item }}<br/>
+    {% endfor %}
+
+    </p>
+    </body>
+    </html>
+
+{% endblock %}

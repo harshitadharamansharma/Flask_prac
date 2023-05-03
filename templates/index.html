@@ -1,9 +1,28 @@
-<!DOCTYPE html>
-<html>
-    <title>Hello_there</title>
-    <body>
-        <h1>Hello {{user_name | upper}}!!!!!!</h1>
-        <p>{{Stuff_html | safe}}</p>
+{% extends 'base.html' %}
 
-    </body>
-</html>
+{% block content %}
+
+
+    <!DOCTYPE html>
+    <html>
+        <title>Hello_there</title>
+        <body>
+
+        {% for message in get_flashed_messages() %}
+
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        
+        {% endfor %}
+        
+
+            <h1>Hello {{user_name | upper}}!!!!!!</h1>
+            <p>{{Stuff_html | safe}}</p>
+
+        </body>
+    </html>
+
+{% endblock %}
+
