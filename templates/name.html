@@ -19,7 +19,8 @@
     <img src = "{{ url_for('static', filename='images/image_1.png')}}" >
     <br/><br/>
 
-    <p id="demo"> This is stuff...</p>
+    <p id="demo"> This is stuff...</p>  
+    <!-- now added the content in demo id; by using js -->
 
 <script src="{{ url_for('static', filename='js/myfile.js')}}"></script>
 
@@ -28,10 +29,12 @@
     <br/>
     <form method = "POST">
         {{ form.hidden_tag() }}
-
-        {{ form.name.label(class="form-label") }}
+        <!-- This will create a csrf token -->
+        
+        {{ form.name.label(class="form-label") }} 
         {{ form.name(class="form-control")}}<br/>
         {{ form.submit(class="btn btn-secondary")}}
+        <!-- These are bootstrap classes -->
 
     </form>
     
